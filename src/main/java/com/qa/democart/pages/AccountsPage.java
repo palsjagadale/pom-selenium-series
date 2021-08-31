@@ -50,6 +50,7 @@ public class AccountsPage {
 		{
 			accSecValueList.add(e.getText());
 		}
+		//TODO Clean this commented code
 		//Collections.sort(accSecValueList);
 		return accSecValueList;		
 	}
