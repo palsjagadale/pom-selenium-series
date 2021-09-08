@@ -32,7 +32,7 @@ public class LoginPage {
 	
 	public String getLoginPageTitle()
 	{
-		return elementUtil.waitForTitlesIs(Constants.LOGIN_PAGE_TITLE, 5);
+		return elementUtil.waitForTitleIs(Constants.LOGIN_PAGE_TITLE, 5);
 	}
 	
 	public String getPageHeaderText()
@@ -42,7 +42,7 @@ public class LoginPage {
 	 
 	public boolean isForgotPWDLinkExist()
 	{
-		return elementUtil.doDisplayed(forgotpwdLink);
+		return elementUtil.doIsDisplayed(forgotpwdLink);
 	}
 	
 	public AccountsPage doLogin(String un, String pwd)

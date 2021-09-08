@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeTest;
 
 import com.qa.democart.pages.AccountsPage;
 import com.qa.democart.pages.LoginPage;
+import com.qa.democart.pages.ProductInfoPage;
 import com.qa.democart.pages.ResultsPage;
 import com.qa.opencart.factory.DriverFactory;
 
@@ -20,6 +21,7 @@ public class BaseTest {
 	LoginPage loginpage;
 	AccountsPage accPage;
 	ResultsPage resultsPage;
+	ProductInfoPage productInfoPage;
 
 	
 	@BeforeTest

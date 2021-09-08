@@ -10,6 +10,8 @@ import org.openqa.selenium.WebElement;
 import com.qa.opencart.utils.Constants;
 import com.qa.opencart.utils.ElementUtil;
 
+
+
 public class AccountsPage {
 	
 	private WebDriver driver;	
@@ -26,15 +28,14 @@ public class AccountsPage {
 		elementUtil = new ElementUtil(driver);
 	}
 	
-	public String getAccPageTitle()
-	{
-		return elementUtil.waitForTitlesIs(Constants.ACCOUNT_PAGE_TITLE, 5);
+	
+	public String getAccPageTitle() {
+		return elementUtil.waitForTitleIs(Constants.ACCOUNT_PAGE_TITLE, 5);
 	}
 	
-	public String getAccPageUrl()
-	{
+	
+	public String getAccpageUrl() {
 		return elementUtil.waitForUrlContains(Constants.ACCOUNT_PAGE_URL_FRACTION, 5);
-		 
 	}
 	
 	public String getAccPageHeader()
@@ -56,7 +57,7 @@ public class AccountsPage {
 	
 	public boolean logoutLinkExist()
 	{
-		return elementUtil.doDisplayed(logoutLink);
+		return elementUtil.doIsDisplayed(logoutLink);
 	}
 	
 	public ResultsPage doSearch(String ProductName)

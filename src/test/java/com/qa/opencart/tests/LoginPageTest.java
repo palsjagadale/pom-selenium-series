@@ -13,7 +13,7 @@ public class LoginPageTest extends BaseTest {
 	public void loginPageTitle() {
 		String title = loginpage.getLoginPageTitle();
 		System.out.println("Login Page Title: " + title);
-		Assert.assertEquals(title, Constants.LOGIN_PAGE_TITLE, Errors.TITLE_ERROR_MESSAGE);
+		Assert.assertEquals(title, Constants.LOGIN_PAGE_TITLE, Errors.TITLE_ERROR_MESSG);
 
 	}
 
@@ -21,7 +21,7 @@ public class LoginPageTest extends BaseTest {
 	public void loginPageHeaderTest() {
 		String header = loginpage.getPageHeaderText();
 		System.out.println("Login page header :" + header);
-		Assert.assertEquals(header, Constants.PAGE_HEADER, Errors.HEADER_ERROR_MESSAGE);
+		Assert.assertEquals(header, Constants.PAGE_HEADER, Errors.HEADER_ERROR_MESSG);
 
 	}
 
