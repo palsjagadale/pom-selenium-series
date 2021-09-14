@@ -91,7 +91,7 @@ public class DriverFactory {
 
 				switch (env) {
 				case "qa":
-					ip = new FileInputStream("./src/test/resources/config/qa.config.properties");
+					ip = new FileInputStream("./src/test/resources/config/config.properties");
 					break;
 				case "dev":
 					ip = new FileInputStream("./src/test/resources/config/dev.config.properties");
@@ -101,16 +101,14 @@ public class DriverFactory {
 					break;
 
 				default:
-					System.out.println("No ENV found.....");
-					throw new Exception("NOENVFOUNDEXCEPTION");
-					
+					System.out.println("No ENV found.....");					
+					throw new Exception("NOENVFOUNDEXCEPTION");									
 				}
 			}
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {			
 			e.printStackTrace();
 		}
 
