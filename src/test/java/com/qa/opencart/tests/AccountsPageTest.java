@@ -8,7 +8,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.qa.opencart.utils.Constants;
-import com.qa.opencart.utils.ExcelUtil;
 
 
 public class AccountsPageTest extends BaseTest {
@@ -67,21 +66,21 @@ public class AccountsPageTest extends BaseTest {
 		Assert.assertTrue(resultHeader.contains(productName));
 	}
 	
-//	@DataProvider
-//	public Object[][] getProductSelectData(){
-//		return new Object[][] {
-//			{"Macbook", "MacBook Air"},
-//			{"Macbook", "MacBook Pro"},
-//			{"Apple", "Apple Cinema 30\""}
-//		};
-//	}
-	
-	
-	
 	@DataProvider
 	public Object[][] getProductSelectData(){
-		return ExcelUtil.getTestData(Constants.PRODUCT_SHEET_NAME);
-	}
+		return new Object[][] {
+			{"Macbook", "MacBook Air"},
+			{"Macbook", "MacBook Pro"},
+		{"Apple", "Apple Cinema 30\""}
+		};
+}
+	
+	
+	
+/*
+ * @DataProvider public Object[][] getProductSelectData(){ return
+ * ExcelUtil.getTestData(Constants.PRODUCT_SHEET_NAME); }
+ */
 	
 	
 	@Test(priority = 6, dataProvider = "getProductSelectData")
