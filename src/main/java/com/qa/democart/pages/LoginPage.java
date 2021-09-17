@@ -6,56 +6,57 @@ import org.openqa.selenium.WebDriver;
 import com.qa.opencart.utils.Constants;
 import com.qa.opencart.utils.ElementUtil;
 
+import io.qameta.allure.Step;
+
 public class LoginPage {
 
 	private WebDriver driver;
 	private ElementUtil elementUtil;
-	
-	//Private By Locators
-	
+
+	// private By locators:
 	private By emailId = By.id("input-email");
 	private By password = By.id("input-password");
-	private By loginBtn= By.xpath("//input[@type='submit']");
-	private By forgotpwdLink = By.xpath("//div[@class='form-group']//a[text()='Forgotten Password'] ");
-	private By header = By.xpath("//div[@id='logo']//a[text()='Your Store']");
-	
-	
-	//constructor
-	
-	public LoginPage(WebDriver driver)
-	{
-		this.driver=driver;
+	private By loginBtn = By.xpath("//input[@value='Login']");
+	private By forgotPwdLink = By.xpath("//div[@class='form-group']//a[text()='Forgotten Password']");
+	private By header = By.cssSelector("div#logo h1 a");
+	private By registerLink = By.linkText("Register");
+
+	// constructor:
+	public LoginPage(WebDriver driver) {
+		this.driver = driver;
 		elementUtil = new ElementUtil(driver);
 	}
-	
-	//Page Actions / Page Methods /functionality or behavior of the page / no assertion
-	
-	public String getLoginPageTitle()
-	{
-		return elementUtil.waitForTitlesIs(Constants.LOGIN_PAGE_TITLE, 5);
+
+	// page actions/ page methods/ functionality/behavior of the page/ no assertion
+
+	@Step("getting login page title....")
+	public String getLoginPageTitle() {
+		return elementUtil.waitForTitleIs(Constants.LOGIN_PAGE_TITLE, 5);
 	}
-	
-	public String getPageHeaderText()
-	{
+
+	@Step("getting login page header text....")
+	public String getPageHeaderText() {
 		return elementUtil.doGetText(header);
 	}
-	 
-	public boolean isForgotPWDLinkExist()
-	{
-		return elementUtil.doDisplayed(forgotpwdLink);
+
+	@Step("checking forgot pwd link is displayed on login page....")
+	public boolean isForgotPwdLinkExist() {
+		return elementUtil.doIsDisplayed(forgotPwdLink);
 	}
-	
-	public AccountsPage doLogin(String un, String pwd)
-	{
-		/*
-		 * driver.findElement(emailId).sendKeys(un);;
-		 * driver.findElement(password).sendKeys(un);
-		 * driver.findElement(loginBtn).click();
-		 */
+
+	@Step("login to application with username {0} and password {1}")
+	public AccountsPage doLogin(String un, String pwd) {
+		System.out.println("============"+un + ":"+ pwd + "=================");
 		elementUtil.doSendKeys(emailId, un);
 		elementUtil.doSendKeys(password, pwd);
 		elementUtil.doClick(loginBtn);
 		return new AccountsPage(driver);
 	}
 	
+	@Step("navigating to reg page....")
+	public RegistrationsPage nagigateToRegisterPage() {
+		elementUtil.doClick(registerLink);
+		return new RegistrationsPage(driver);
+	}
+
 }
