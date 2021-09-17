@@ -51,15 +51,15 @@ public class AccountsPage {
 		for (WebElement e : accSecList) {
 			accSecValueList.add(e.getText());
 		}
-<<<<<<< HEAD
+//<<<<<<< HEAD
 		//TODO Clean this commented code
 		//Collections.sort(accSecValueList);
-		return accSecValueList;		
-=======
+		//return accSecValueList;		
+
 		// Collections.sort(accSecValueList);
 		System.out.println("printing all the t est cases here");
 		return accSecValueList;
->>>>>>> 3309d3670127a3e5baf6c1aff682024ec9fa3f20
+
 	}
 
 	@Step("isLogoutLinkExist")
